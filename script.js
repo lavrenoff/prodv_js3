@@ -21,19 +21,19 @@ btn.addEventListener("click", () => {
     const reviewInput = document.getElementById("review__input");
     const reviewText = document.getElementById("review__txt");
 
-    let max = 0;
-    if (reviews.length > 0) {
-        max =
-            Math.max.apply(
-                null,
-                reviews.map((item) => item.id)
-            ) + 1;
-    } else {
-        max = 0;
-    }
+    // let max = 0;
+    // if (reviews.length > 0) {
+    //     max =
+    //         Math.max.apply(
+    //             null,
+    //             reviews.map((item) => item.id)
+    //         ) + 1;
+    // } else {
+    //     max = 0;
+    // }
 
     const review = {
-        id: max,
+        // id: max,
         product: reviewInput.value,
         text: reviewText.value,
     };
@@ -65,7 +65,7 @@ function showReviews() {
     let count = 0;
     reviews.forEach(function (item) {
         out += `<div class="review__item"><p class="name" role="alert">${item.product}</p>`;
-        out += `<p class="comment" role="alert">${item.text}</p><button class='review__btndel' data-id="${count}" onclick="deleteReview(${count});">Удалить</button></div>`;
+        out += `<p class="comment" role="alert">${item.text}</p><button class='review__btndel' onclick="deleteReview(${count});">Удалить</button></div>`;
         count++;
     });
     commentField.innerHTML = out;
